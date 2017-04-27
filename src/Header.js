@@ -1,31 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-
-import './Header.css';
-
 
 class Header extends Component {
-
-  componentWillMount() {
-    console.log('componentWIllMount!');
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount!');
-  }
-
   render() {
-    console.log('render!');
-    const muuttuja = 'Jotain tekstiä!';
-
     return (
-      <main>
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Tervetuloa</h2>
-          {muuttuja}
+      <div className="header">
+        <a href="#" className="logo-link">Logo</a>
+        <div className="menu-links">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+          <a href="#">Link 4</a>
         </div>
-      </main>
+      </div>
     );
   }
 }
