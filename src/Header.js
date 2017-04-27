@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
   render() {
     return (
       <div className="header">
-        <a href="#" className="logo-link">Logo</a>
+        <NavLink to="/" className="logo-link">Logo</NavLink>
         <div className="menu-links">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 4</a>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/products">Products</NavLink>
+
+          <NavLink to="/products/1-basic-hammer">Product</NavLink>
         </div>
       </div>
     );
