@@ -10,8 +10,6 @@ class Header extends Component {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/products">Products</NavLink>
-
-          <NavLink to="/products/1-basic-hammer">Product</NavLink>
         </div>
       </div>
     );

@@ -1,5 +1,90 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  background-color: #f7f7f7;
+  font-family: helvetica;
+}
+
+.main-align {
+  margin-right: auto; /* Adjust right margin automatically */
+  margin-left: auto; /* Adjust left margin automatically */
+  max-width: 800px; /* Maximum allowed width */
+  background-color: #ffffff;
+}
+
+.header {
+  background-color: #333333;
+  padding: 20px;
+  height: 20px;
+}
+
+.header a {
+  color: #ffffff;
+}
+
+/* Applied when the cursor is hovered over the element */
+.header a:hover {
+  color: orange;
+}
+
+.logo-link {
+  float: left;
+  text-transform: uppercase; /* Make text uppercase */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.menu-links {
+  float: right;
+}
+
+.content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.content-align {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 500px;
+}
+
+.footer {
+  text-align: center;
+  background-color: #333333;
+  color: #ffffff;
+  padding: 5px 20px; /* padding: <top and bottom padding> <left and right padding>; */
+}
+
+.value-display {
+  padding-top: 30px;
+  background-color: #e5e5e5;
+  width: 25%;
+  height: 80px;
+  text-align: center;
+}
+
+.value-display .title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.value-display .value {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.values {
+  height: 100px;
+  margin-bottom: 40px;
+}
+.values .value-display {
+  float: left;
+  width: 22.5%;
+}
+
+/* Selects all elements with the .value-display
+   class except the last child in the set. */
+.values .value-display:not(:last-child) {
+  margin-right: 3.33%;
 }
