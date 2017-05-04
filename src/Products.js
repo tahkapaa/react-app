@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import data from './product-data';
+import { connect } from 'react-redux';
 
 class Products extends Component {
   render() {
     const links = [];
-    const keys = Object.keys(data);
+    const keys = Object.keys(this.props.data);
     keys.forEach((id) => {
       links.push(
         <Link to={`/products/${id}`} key={id}>
-          {data[id].title}
+          {this.props.data[id].title}
         </Link>,
       );
     });
@@ -23,4 +23,10 @@ class Products extends Component {
   }
 }
 
-export default Products;
+export default connect(
+  function mapStateToProps(state) {
+    return {
+      data: state.productsData.products,
+    };
+  },
+)(Products);

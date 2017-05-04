@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import data from './product-data';
 
 class Product extends Component {
   render() {
-
-    const productId = this.props.match.params.productId;
-    const product = data[productId] || {};
+    const { product } = this.props;
     return (
       <div>
         Id: {product.id}<br />
@@ -19,4 +17,13 @@ class Product extends Component {
   }
 }
 
-export default Product;
+export default connect(
+  function mapStateToProps(state, ownProps) {
+    const data = state.productsData.products;
+    const productId = ownProps.match.params.productId;
+    const product = data[productId] || {};
+    return {
+      product,
+    };
+  },
+)(Product);

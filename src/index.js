@@ -4,31 +4,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 import { createLogger } from 'redux-logger';
 
 import App from './App';
 import './index.css';
 
+import rootReducer from './reducers/root';
 
-function counterReducer(state = 10, action) {
-  if (action.type === 'INCREMENT') {
-    return state + 1;
-  }
-  if (action.type === 'DECREMENT') {
-    return state - 1;
-  }
-  return state;
-}
-
-const rootReducer = combineReducers({
-  counter: counterReducer,
-});
 
 const middleWare = applyMiddleware(createLogger());
 
-const store = createStore(rootReducer, middleWare);
+const store = createStore(
+  rootReducer,
+  { counter: 100 },
+  middleWare,
+);
 
 const router = (
   <Provider store={store}>
