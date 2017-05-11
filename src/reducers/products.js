@@ -2,6 +2,7 @@ import products from '../product-data';
 import {
   PRODUCT_ADD,
   PRODUCT_UPDATE,
+  PRODUCT_DELETE,
 } from '../actions/products';
 
 
@@ -27,6 +28,14 @@ function productsReducer(state = initialState, action) {
       products: Object.assign({}, state.products, {
         [action.payload.id]: action.payload,
       }),
+    });
+  }
+
+  if (action.type === PRODUCT_DELETE) {
+    const products = state.products;
+    delete products[action.payload.id];
+    return Object.assign({}, state, {
+      products: Object.assign({}, products),
     });
   }
 

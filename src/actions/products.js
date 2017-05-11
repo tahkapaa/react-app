@@ -17,3 +17,12 @@ export function updateProduct(product) {
     payload: product,
   };
 }
+
+export const PRODUCT_DELETE = 'PRODUCT_DELETE';
+
+export function deleteProduct(product) {
+  return {
+    type: PRODUCT_DELETE,
+    payload: product,
+  };
+}

@@ -62,7 +62,7 @@ class ProductForm extends Component {
         <br />
 
         <button
-          onClick={() => this.props.onSubmit(this.state)}
+          onClick={() => this.props.onSubmit(Object.assign({}, this.state))}
         >
           Submit
         </button>

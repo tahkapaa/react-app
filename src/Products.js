@@ -3,20 +3,29 @@ import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
-import { addProduct } from './actions/products';
+import {
+  addProduct,
+  deleteProduct,
+} from './actions/products';
 
 import ProductForm from './ProductForm';
 
 
 class Products extends Component {
   render() {
+    const data = this.props.data;
     const links = [];
     const keys = Object.keys(this.props.data);
     keys.forEach((id) => {
       links.push(
-        <Link to={`/products/${id}`} key={id}>
-          {this.props.data[id].title}
-        </Link>,
+        <div key={id}>
+          <Link to={`/products/${id}`}>
+            {this.props.data[id].title}
+          </Link>
+          <button onClick={() => this.props.deleteProduct(data[id])}>
+            Delete
+          </button>
+        </div>,
       );
     });
 
@@ -41,6 +50,7 @@ export default connect(
   (dispatch) => {
     return {
       addProduct: productState => dispatch(addProduct(productState)),
+      deleteProduct: product => dispatch(deleteProduct(product)),
     };
   },
 )(Products);
