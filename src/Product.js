@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { updateProduct } from './actions/products';
+import ProductForm from './ProductForm';
 
 class Product extends Component {
   render() {
@@ -12,6 +14,15 @@ class Product extends Component {
         Description: {product.description}<br />
         Price: {product.price}<br />
         Currency: {product.currency}<br />
+
+        <ProductForm
+          product={product}
+          onSubmit={
+            modified => this.props.updateProduct(Object.assign(modified, {
+              id: product.id,
+            }))
+          }
+        />
       </div>
     );
   }
@@ -25,5 +36,8 @@ export default connect(
     return {
       product,
     };
+  },
+  {
+    updateProduct: updateProduct
   },
 )(Product);
