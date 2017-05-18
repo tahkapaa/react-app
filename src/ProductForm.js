@@ -16,6 +16,17 @@ class ProductForm extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const product = nextProps.product || {};
+
+    this.setState({
+      title: product.title || '',
+      description: product.description || '',
+      price: product.price || '',
+      currency: product.currency || '',
+    });
+  }
+
   onChange(event, property) {
     this.setState({
       [property]: event.target.value,
